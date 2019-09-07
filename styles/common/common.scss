@@ -2,3 +2,9 @@
 @import 'base.scss';
 @import 'colors.sass';
 @import 'text.sass';
+
+.particles{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
