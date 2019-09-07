@@ -4,7 +4,7 @@ import Head from 'next/head';
 import Nav from '../components/nav';
 import '../styles/index.scss';
 import Particles from 'react-particles-js';
-import params from './particles.config';
+import params from '../particles.config';
 
 function Home(){
   return(
