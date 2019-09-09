@@ -13,7 +13,7 @@ function Home(){
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true);
-    },5000);
+    },5000); 
   });
 
   return (isLoaded) ? 
