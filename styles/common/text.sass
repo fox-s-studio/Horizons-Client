@@ -1,11 +1,22 @@
-$small: 13px
-$normal: 16px
-$medium: 18px
-$big: 25px
-$bigger: 35px
+$small: 15px
+$normal: 18px
+$medium: 28px
+$big: 35px
+$bigger: 45px
 
 .title
     font-size: $bigger
-
-.subtitle
-    font-size: $big
+    font-weight: bold
+    letter-spacing: 5px
+    text-transform: uppercase
+    &.sub
+        font-size: $big
+    &.med
+        font-size: $medium
+.text
+    font-size: $normal
+    letter-spacing: 2px
+    &.sm
+        font-size: $small
+    &.bold
+        font-weight: bold

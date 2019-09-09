@@ -8,7 +8,7 @@ import params from '../particles.config';
 import Loader from '../components/loader';
 
 function Home(){
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -18,18 +18,31 @@ function Home(){
 
   return (isLoaded) ? 
     (
-      <div>
+      <div className="Homepage">
         <Head>
           <title>Home</title>
           <link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/css/all.min.css"></link>
         </Head>
         <Particles className="particles" params={params} />
         <Nav />
+        <div className="content">
+          <div className="left">
+            <p className="title sub">Bienvenue Sur</p>
+            <p className="title">Horizon's Gaming</p>
+            <p className="text bold">Communauté multi-gaming Francophone</p>
+          </div>
+          <div className="right">
+            <div className="social">
+                <i className="fab fa-discord"></i>
+                <i className="fab fa-twitter"></i>
+            </div>
+          </div>
+        </div>
       </div>
     )
   :
   (
-    <div>
+    <div className="Homepage">
       <Head>
         <title>Home</title>
         <link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/css/all.min.css"></link>
