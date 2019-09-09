@@ -1,4 +1,6 @@
 .nav
+    @media only (max-width: 1000px)   
+        padding: 0 10px
     height: 12vh
     padding: 0 50px
     .navItems
@@ -10,15 +12,35 @@
             display: flex
             flex-direction: column
             justify-content: center
-            img
+            .Logo
+                @media only (max-width: 1000px)
+                    display: none
                 transition: all .1s
                 width: 300px
                 &:hover
                     cursor: pointer
                     filter: drop-shadow(2px 2px 20px $white-3)
                     transform: scale(1.01)
+            .Logo-m
+                display: none
+                @media only (max-width: 1000px)
+                    display: block
+                    transition: all .1s
+                    width: 50px
+                    &:hover
+                        cursor: pointer
+                        filter: drop-shadow(2px 2px 20px $white-3)
+                        transform: scale(1.01)
 
+            .toggleMenu
+                display: none
+                @media only (max-width: 1000px)
+                    color: $white-3
+                    display: block
+                    font-size: 25px
             .itemLinks
+                @media only (max-width: 1000px)
+                    display: none
                 display: flex
                 flex-direction: row
                 .Link

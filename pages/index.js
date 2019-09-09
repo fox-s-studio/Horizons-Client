@@ -8,7 +8,7 @@ import params from '../particles.config';
 import Loader from '../components/loader';
 
 function Home(){
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,6 +30,14 @@ function Home(){
             <p className="title sub">Bienvenue Sur</p>
             <p className="title">Horizon's Gaming</p>
             <p className="text bold">Communauté multi-gaming Francophone</p>
+            <div className="social-m">
+              <a href="https://discord.gg/YGu9BWW" target="blank">
+                <i className="fab fa-discord"></i>
+              </a>
+              <a href="https://twitter.com/HOz_Actu" target="blank">
+                <i className="fab fa-twitter"></i>
+              </a>
+            </div>
           </div>
           <div className="right">
             <div className="social">

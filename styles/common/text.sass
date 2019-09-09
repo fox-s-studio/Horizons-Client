@@ -4,19 +4,38 @@ $medium: 28px
 $big: 35px
 $bigger: 45px
 
+$small-m: 13px
+$normal-m: 15px
+$medium-m: 18px
+$big-m: 20px
+$bigger-m: 25px
+
 .title
+    @media only (max-width: 1000px)
+        font-size: $bigger-m
+        letter-spacing: 2px
+        text-align: center
     font-size: $bigger
     font-weight: bold
     letter-spacing: 5px
     text-transform: uppercase
     &.sub
+        @media only (max-width: 1000px)
+            font-size: $big-m
         font-size: $big
     &.med
+        @media only (max-width: 1000px)
+            font-size: $medium-m
         font-size: $medium
 .text
+    @media only (max-width: 1000px)
+        font-size: $normal-m
+        letter-spacing: 1px
     font-size: $normal
     letter-spacing: 2px
     &.sm
+        @media only (max-width: 1000px)
+            font-size: $small-m
         font-size: $small
     &.bold
         font-weight: bold
