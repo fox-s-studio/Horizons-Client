@@ -3,6 +3,7 @@ body{
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir,Helvetica, sans-serif;
     background-image: url('../static/wallpaper.png');
+    background-repeat: no-repeat;
     *:not(.particles){
         z-index: 1;
     }
