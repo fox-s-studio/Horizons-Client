@@ -6,15 +6,21 @@ import '../styles/index.scss';
 import Particles from 'react-particles-js';
 import params from '../particles.config';
 import Loader from '../components/loader';
+import MenuMobile from '../components/menu-m';
 
 function Home(){
   const [isLoaded, setIsLoaded] = useState(true);
+  const [menuMobile, setMenuMobile] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true);
     },5000); 
   });
+
+  const toggleMenu = async () => {
+    setMenuMobile(!menuMobile);
+  }
 
   return (isLoaded) ? 
     (
@@ -24,7 +30,8 @@ function Home(){
           <link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/css/all.min.css"></link>
         </Head>
         <Particles className="particles" params={params} />
-        <Nav />
+        <MenuMobile active={!menuMobile}/>
+        <Nav toggleMenu={toggleMenu} />
         <div className="content">
           <div className="left">
             <p className="title sub">Bienvenue Sur</p>

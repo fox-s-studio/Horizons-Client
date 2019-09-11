@@ -2,11 +2,12 @@
     @media only (max-width: 1000px)
         top: 0
         left: 0   
-        padding: 0 10px
+        padding: 0 20px
         position: absolute
         width: 100%
     height: 12vh
     padding: 0 50px
+    z-index: 3
     .navItems
         display: flex
         flex-direction: row
@@ -30,7 +31,7 @@
                 @media only (max-width: 1000px)
                     display: block
                     transition: all .1s
-                    width: 50px
+                    width: 60px
                     &:hover
                         cursor: pointer
                         filter: drop-shadow(2px 2px 20px $white-3)
@@ -41,7 +42,11 @@
                 @media only (max-width: 1000px)
                     color: $white-3
                     display: block
-                    font-size: 25px
+                    font-size: 35px
+                    &:hover
+                        cursor: pointer
+                        filter: drop-shadow(2px 2px 20px $white-3)
+                        transform: scale(1.01)
             .itemLinks
                 @media only (max-width: 1000px)
                     display: none

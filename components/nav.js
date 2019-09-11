@@ -5,7 +5,10 @@ import LogoM from '../static/logo.png';
 import UserPic from '../static/user.png';
 
 
-function Nav() {
+function Nav(props) {
+  const MenuMobileToggle = () => {
+    props.toggleMenu();
+  }
   return(
     <nav className="nav">
       <ul className="navItems">
@@ -14,7 +17,7 @@ function Nav() {
           <img src={LogoM} alt="Logo Horizons" className="Logo-m" />
         </li>
         <li className="item">
-          <i className="fas fa-bars toggleMenu"></i>
+          <i className="fas fa-bars toggleMenu" onClick={MenuMobileToggle} ></i>
           <ul className="itemLinks">
             <li className="Link">
               <Link href='/'>
@@ -48,6 +51,7 @@ function Nav() {
         </li>
       </ul>
     </nav>
+
   )
 }
 
