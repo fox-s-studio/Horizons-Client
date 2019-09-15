@@ -17,7 +17,7 @@ export default function Meta(props){
 	        <meta name="twitter:card" content="summary_large_image" />
 	        <meta name="twitter:site" content="@HOz_Actu" />
 	        <meta name="twitter:title" content="Horizon's Gaming" />
-	        <meta name="twitter:description" content="Horizon's Gaming" />
+	        <meta name="twitter:description" content="Site officiel de la communauté Horizon's !" />
 	        <meta name="twitter:image" content="https://raw.githubusercontent.com/fox-s-studio/Horizons-Client/master/static/CardShare.png" />
         </Head>
     )
