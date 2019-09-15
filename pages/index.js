@@ -25,7 +25,7 @@ function Home(){
   return (isLoaded) ? 
     (
       <div className="Homepage">
-        <Meta title="Home"/>
+        <Meta title="Horizon's Gaming"/>
         <Particles className="particles" params={params} />
         <MenuMobile active={menuMobile} toggleMenu={toggleMenu}/>
         <Nav toggleMenu={toggleMenu} />
