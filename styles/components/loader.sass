@@ -5,7 +5,12 @@
     flex-direction: column
     height: 100vh
     justify-content: center
+    position: absolute
+    transition: all .8s
     width: 100%
+    z-index: 5
+    &.Off
+        opacity: 0
     .Logo
         animation: LoadLogo 1s alternate infinite ease-in-out
         width: 150px

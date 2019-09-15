@@ -6,7 +6,7 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    *:not(.particles):not(.menu-m):not(.nav){
+    *:not(.particles):not(.menu-m):not(.nav):not(.Loader){
         z-index: 2;
     }
     .particles{

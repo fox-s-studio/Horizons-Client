@@ -9,7 +9,7 @@ import Loader from '../components/loader';
 import MenuMobile from '../components/menu-m';
 
 function Home(){
-  const [isLoaded, setIsLoaded] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
 
   useEffect(() => {
@@ -22,10 +22,10 @@ function Home(){
     setMenuMobile(!menuMobile);
   }
 
-  return (isLoaded) ? 
-    (
+  return (
       <div className="Homepage">
         <Meta title="Horizon's Gaming"/>
+        <Loader loaded={isLoaded} />
         <Particles className="particles" params={params} />
         <MenuMobile active={menuMobile} toggleMenu={toggleMenu}/>
         <Nav toggleMenu={toggleMenu} />
@@ -55,17 +55,7 @@ function Home(){
           </div>
         </div>
       </div>
-    )
-  :
-  (
-    <div className="Homepage">
-      <Head>
-        <title>Home</title>
-        <link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/css/all.min.css"></link>
-      </Head>
-      <Loader />
-    </div>
-  );
+    );
 }
 
 export default Home
