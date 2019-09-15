@@ -10,7 +10,7 @@ export default function Meta(props){
 
             <meta property="og:type" content="article" />
 	        <meta property="og:title" content="Horizon's Gaming" />
-	        <meta property="og:url" content="http://horizonsgaming.fr/" />
+	        <meta property="og:url" content="http://horizons.foxstud.io/" />
 	        <meta property="og:image" content="https://raw.githubusercontent.com/fox-s-studio/Horizons-Client/master/static/CardShare.png" />
 	        <meta property="article:author" content="Horizon's" />
 
