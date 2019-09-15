@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
-import Head from 'next/head';
+import Meta from '../components/meta';
 import Nav from '../components/nav';
 import '../styles/index.scss';
 import Particles from 'react-particles-js';
@@ -18,19 +18,16 @@ function Home(){
     },5000); 
   });
 
-  const toggleMenu = async () => {
+  function toggleMenu(){
     setMenuMobile(!menuMobile);
   }
 
   return (isLoaded) ? 
     (
       <div className="Homepage">
-        <Head>
-          <title>Home</title>
-          <link rel="stylesheet" type="text/css" href="static/fonts/fontawesome/css/all.min.css"></link>
-        </Head>
+        <Meta title="Home"/>
         <Particles className="particles" params={params} />
-        <MenuMobile active={!menuMobile}/>
+        <MenuMobile active={menuMobile} toggleMenu={toggleMenu}/>
         <Nav toggleMenu={toggleMenu} />
         <div className="content">
           <div className="left">

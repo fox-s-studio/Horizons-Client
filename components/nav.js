@@ -5,8 +5,11 @@ import LogoM from '../static/logo.png';
 import UserPic from '../static/user.png';
 
 
+
+
+
 function Nav(props) {
-  const MenuMobileToggle = () => {
+  function MenuMobileToggle(){
     props.toggleMenu();
   }
   return(
