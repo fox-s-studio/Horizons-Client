@@ -13,7 +13,7 @@ function Home(){
   const [menuMobile, setMenuMobile] = useState(false);
 
   useEffect(() => {
-    console.log(process.env.TEST);
+    console.log(process.env.REACT_APP_TEST);
     setTimeout(() => {
       setIsLoaded(true);
     },5000); 
