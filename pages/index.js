@@ -18,7 +18,7 @@ function Home(){
 
   const isProd = process.env.NODE_ENV === 'production'
 
-  const apiUrl = "https://strapi-hoz-test.herokuapp.com/";
+  const apiUrl = isProd ? "https://strapi-hoz-test.herokuapp.com/" : "http://localhost:1337/";
 
   function addBackgrounds(backgrounds){
     setCurrentBackground(backgrounds);
@@ -26,7 +26,6 @@ function Home(){
   }
 
   useEffect(() => {
-    console.log(isProd)
     setInterval(() => {
       setCount(count + 1)
     },1000)
@@ -42,11 +41,11 @@ function Home(){
   },[]);
 
   useEffect(() => {
-    axios.get('http://localhost:1337/Pages/',{params:{Nom: 'Homepage'}})
+    axios.get(`${apiUrl}Pages/`,{params:{Nom: 'Homepage'}})
       .then(res => {
         if(res.data[0] != undefined){
           res.data[0].backgrounds.map(n => {
-            axios.get('http://localhost:1337/Backgrounds',{params:{id: n.id}})
+            axios.get(`${apiUrl}Backgrounds/`,{params:{id: n.id}})
               .then(res => {
                 setBackgrounds(backgrounds.push(res.data[0].Image.url))
                 console.log(backgrounds)
