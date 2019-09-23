@@ -22,7 +22,6 @@ function Home(){
 
   function addBackgrounds(backgrounds){
     setCurrentBackground(backgrounds);
-    console.log('Current :' + currentBackground)
   }
 
   useEffect(() => {
@@ -48,7 +47,6 @@ function Home(){
           axios.get(`${apiUrl}Backgrounds/`,{params:{id: res.data[0].backgrounds.id}})
             .then(res => {
               setBackgrounds(backgrounds.push(res.data[0].Image.url))
-              console.log(backgrounds)
               addBackgrounds(backgrounds[0])
             })
 
