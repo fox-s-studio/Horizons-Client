@@ -11,8 +11,10 @@ import MenuMobile from '../components/menu-m';
 function Home(){
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
+  const isProd = process.env.NODE_ENV === 'production'
 
   useEffect(() => {
+    console.log(isProd, process.env.NODE_ENV)
     setTimeout(() => {
       setIsLoaded(true);
     },5000); 
