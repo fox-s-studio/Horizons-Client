@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import Link from 'next/link';
 import Meta from '../components/meta';
 import Nav from '../components/nav';
 import '../styles/index.scss';
@@ -7,23 +6,58 @@ import Particles from 'react-particles-js';
 import params from '../particles.config';
 import Loader from '../components/loader';
 import MenuMobile from '../components/menu-m';
+import axios from 'axios';
 
 function Home(){
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
+  const [count, setCount] = useState(0);
+
+  const [backgrounds, setBackgrounds] = useState([]);
+  const [currentBackground, setCurrentBackground] = useState();
+
+  function addBackgrounds(backgrounds){
+    setCurrentBackground(backgrounds);
+    console.log('Current :' + currentBackground)
+  }
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsLoaded(true);
-    },5000); 
-  });
+    setInterval(() => {
+      setCount(count + 1)
+    },1000)
+    axios.get('http://localhost:1337/').then(res => {
+      if(count < 5){
+        setTimeout(() => {
+          setIsLoaded(true);
+        },5000 - (count*1000)); 
+      } else {
+        setIsLoaded(true);
+      }
+    });
+  },[]);
+
+  useEffect(() => {
+    axios.get('http://localhost:1337/Pages/',{params:{Nom: 'Homepage'}})
+      .then(res => {
+        if(res.data[0] != undefined){
+          res.data[0].backgrounds.map(n => {
+            axios.get('http://localhost:1337/Backgrounds',{params:{id: n.id}})
+              .then(res => {
+                setBackgrounds(backgrounds.push(res.data[0].Image.url))
+                console.log(backgrounds)
+                addBackgrounds(backgrounds[0])
+              }).catch(err => console.log(err));
+          })
+        }
+      }).catch(err => console.log(err))
+  },[]);
 
   function toggleMenu(){
     setMenuMobile(!menuMobile);
   }
 
   return (
-      <div className="Homepage">
+      <div className="Homepage" style={{backgroundImage: `url(${currentBackground})`}}>
         <Meta title="Horizon's Gaming"/>
         <Loader loaded={isLoaded} />
         <Particles className="particles" params={params} />
