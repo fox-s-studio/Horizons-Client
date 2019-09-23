@@ -16,16 +16,21 @@ function Home(){
   const [backgrounds, setBackgrounds] = useState([]);
   const [currentBackground, setCurrentBackground] = useState();
 
+  const isProd = process.env.NODE_ENV === 'production'
+
+  const apiUrl = "https://strapi-hoz-test.herokuapp.com/";
+
   function addBackgrounds(backgrounds){
     setCurrentBackground(backgrounds);
     console.log('Current :' + currentBackground)
   }
 
   useEffect(() => {
+    console.log(isProd)
     setInterval(() => {
       setCount(count + 1)
     },1000)
-    axios.get('http://localhost:1337/').then(res => {
+    axios.get(apiUrl).then(res => {
       if(count < 5){
         setTimeout(() => {
           setIsLoaded(true);
