@@ -44,14 +44,15 @@ function Home(){
     axios.get(`${apiUrl}Pages/`,{params:{Nom: 'Homepage'}})
       .then(res => {
         if(res.data[0] != undefined){
-          res.data[0].backgrounds.map(n => {
-            axios.get(`${apiUrl}Backgrounds/`,{params:{id: n.id}})
-              .then(res => {
-                setBackgrounds(backgrounds.push(res.data[0].Image.url))
-                console.log(backgrounds)
-                addBackgrounds(backgrounds[0])
-              }).catch(err => console.log(err));
-          })
+
+          axios.get(`${apiUrl}Backgrounds/`,{params:{id: res.data[0].backgrounds.id}})
+            .then(res => {
+              setBackgrounds(backgrounds.push(res.data[0].Image.url))
+              console.log(backgrounds)
+              addBackgrounds(backgrounds[0])
+            })
+
+            .catch(err => console.log(err))
         }
       }).catch(err => console.log(err))
   },[]);
@@ -61,7 +62,7 @@ function Home(){
   }
 
   return (
-      <div className="Homepage" style={{backgroundImage: `url(${currentBackground})`}}>
+      <div className="Homepage" style={currentBackground ? {backgroundImage: `url(${currentBackground})`} : null }>
         <Meta title="Horizon's Gaming"/>
         <Loader loaded={isLoaded} />
         <Particles className="particles" params={params} />
