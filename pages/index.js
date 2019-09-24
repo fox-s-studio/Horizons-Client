@@ -60,7 +60,7 @@ function Home(){
   }
 
   return (
-      <div className="Homepage" style={currentBackground ? {backgroundImage: `url(${currentBackground})`} : null }>
+      <div className="Homepage" style={currentBackground ? {backgroundImage: `linear-gradient(to bottom,rgba(33,33,33,.5),rgba(33,33,33,.5)), url(${currentBackground}) `} : null }>
         <Meta title="Horizon's Gaming"/>
         <Loader loaded={isLoaded} />
         <Particles className="particles" params={params} />
