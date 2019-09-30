@@ -1,0 +1,19 @@
+.Sections
+    background-size: cover
+    background-repeat: no-repeat
+    position: relative
+    transition: all 1s
+    .content
+        @media only (max-width: 1000px)
+            align-items: center
+            display: flex
+            flex-direction: column
+            justify-content: flex-start
+            padding: 15vh 20px 0
+            height: 100vh
+        display: grid
+        height: 88vh
+        grid-template-columns: 2fr 1fr
+        padding: 50px
+        .title
+            color: $white-3
