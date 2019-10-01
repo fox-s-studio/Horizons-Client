@@ -20,7 +20,7 @@ function Home(){
     },5000); 
   });
 
-  function toggleMenu(){ 
+  function toggleMenu(){
     setMenuMobile(!menuMobile);
   }
 
