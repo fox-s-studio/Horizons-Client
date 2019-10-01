@@ -49,8 +49,7 @@ function Sections(){
     useEffect(() => {
         axios.get(`${apiUrl}Sections/`,{params:{Nom:id}})
         .then(res => {
-            if(res.data[0] != undefined){
-                console.log(res)
+            if(res.data[0] != undefined && id != undefined){
             axios.get(`${apiUrl}Backgrounds/`,{params:{id: res.data[0].background.id}})
                 .then(res => {
                 setBackgrounds(backgrounds.push(res.data[0].Image.url))
