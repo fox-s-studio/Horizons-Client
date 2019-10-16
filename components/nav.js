@@ -41,7 +41,7 @@ function Nav(props) {
             </li>
             <li className="Link">
               <Link href='/'>
-                <a>Évennements</a>
+                <a>Événements</a>
               </Link>
             </li>
             <li className="Link">
