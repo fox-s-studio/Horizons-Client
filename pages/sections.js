@@ -25,7 +25,7 @@ function Sections(){
 
   useEffect(() => setCurrentBackground(background), [background])
 
-  useEffect(() => console.log(sectionsArray), [sectionsArray])
+  useEffect(() => console.log(sectionsArray), [background])
 
   useEffect(() => {
     setInterval(() => {
