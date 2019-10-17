@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import Meta from '../../components/meta';
-import Nav from '../../components/nav';
-import '../../styles/index.scss';
+import Meta from '../components/meta';
+import Nav from '../components/nav';
+import '../styles/index.scss';
 import Particles from 'react-particles-js';
-import params from '../../particles.config';
-import Loader from '../../components/loader';
-import MenuMobile from '../../components/menu-m';
-import Section from '../../components/section';
+import params from '../particles.config';
+import Loader from '../components/loader';
+import MenuMobile from '../components/menu-m';
+import Section from '../components/section';
 import axios from 'axios';
 
 function Sections(){
