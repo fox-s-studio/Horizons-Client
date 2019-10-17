@@ -25,6 +25,8 @@ function Sections(){
 
   useEffect(() => setCurrentBackground(background), [background])
 
+  useEffect(() => console.log(true), [sectionsArray])
+
   useEffect(() => {
     setInterval(() => {
       setCount(count + 1)
