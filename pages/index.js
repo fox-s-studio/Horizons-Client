@@ -32,7 +32,7 @@ function Home(){
       if(count < 5){
         setTimeout(() => {
           setIsLoaded(true);
-        },3000 - (count*1000)); 
+        },1000 - (count*1000)); 
       } else {
         setIsLoaded(true);
       }

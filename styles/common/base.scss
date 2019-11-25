@@ -8,4 +8,12 @@ body{
     .particles{
         z-index: 1
     }
+    *::-webkit-scrollbar{
+        background-color: transparent;
+        width: 10px;
+    }
+    *::-webkit-scrollbar-thumb{
+        border-radius: 10px;
+        background-color: rgba(255,255,255,.3);
+    }
 }

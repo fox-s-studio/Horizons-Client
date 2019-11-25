@@ -26,22 +26,17 @@ function Nav(props) {
           <ul className="itemLinks">
             <li className="Link">
               <Link href='/'>
-                <a>Présentation</a>
-              </Link>
-            </li>
-            <li className="Link">
-              <Link href='/'>
                 <a>News</a>
-              </Link>
-            </li>
-            <li className="Link">
-              <Link href='/sections'>
-                <a>Sections</a>
               </Link>
             </li>
             <li className="Link">
               <Link href='/'>
                 <a>Événements</a>
+              </Link>
+            </li>
+            <li className="Link">
+              <Link href='/sections'>
+                <a>Sections</a>
               </Link>
             </li>
             <li className="Link">
