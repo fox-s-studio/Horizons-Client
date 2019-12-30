@@ -44,7 +44,7 @@ function Home(){
       .then(res => {
         if(res.data[0] != undefined){
 
-          axios.get(`${apiUrl}Backgrounds/`,{params:{id: res.data[0].backgrounds.id}})
+          axios.get(`${apiUrl}Backgrounds/`,{params:{_id: res.data[0].backgrounds.id}})
             .then(res => {
               setBackgrounds(backgrounds.push(res.data[0].Image.url))
               addBackgrounds(backgrounds[0])

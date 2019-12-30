@@ -45,7 +45,7 @@ function Sections(){
       .then(res => {
         if(Array.isArray(res.data)){
 
-          axios.get(`${apiUrl}Backgrounds/`,{params:{id: res.data[0].backgrounds.id}})
+          axios.get(`${apiUrl}Backgrounds/`,{params:{_id: res.data[0].backgrounds.id}})
             .then(res => {
               setBackground(res.data[0].Image.url)
             })

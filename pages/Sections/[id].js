@@ -80,7 +80,7 @@ function Sections(){
             }
             if(Array.isArray(res.data) && id != undefined){
                 setSectionName(res.data[0].Titre)
-                axios.get(`${apiUrl}Backgrounds/`,{params:{id: res.data[0].background.id}})
+                axios.get(`${apiUrl}Backgrounds/`,{params:{_id: res.data[0].background.id}})
                     .then(res => {
                         setBackgrounds(backgrounds.push(res.data[0].Image.url))
                         addBackgrounds(backgrounds[0])
