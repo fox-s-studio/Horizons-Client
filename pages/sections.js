@@ -21,7 +21,7 @@ function Sections(){
 
   const isProd = process.env.NODE_ENV === 'production'
 
-  const apiUrl = isProd ? "https://strapi-hoz-test.herokuapp.com/" : "http://localhost:1337/";
+  const apiUrl = isProd ? "https://horizons-database.herokuapp.com/" : "http://localhost:1337/";
 
   useEffect(() => setCurrentBackground(background), [background])
 
