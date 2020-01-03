@@ -1,0 +1,40 @@
+.SectionPage
+    background-size: cover
+    background-repeat: no-repeat
+    position: relative
+    transition: all 1s
+    min-height: 100vh
+    .content
+        @media only (max-width: 1000px)
+            padding: 12vh 20px 0
+        color: $white-3
+        display: grid
+        grid-template-rows: 50px 100vh - $navHeight*2
+        height: 100vh - $navHeight
+        padding: 0 50px 50px
+        .contentTitle
+        .sectionContent
+            @media only (max-width: 1000px)
+                display: flex
+                flex-direction: column
+            display: grid
+            grid-template-columns: repeat(2,1fr)
+            grid-gap: 10px
+            .sectionNews, .sectionEvents
+                @media only (max-width: 1000px)
+                    margin: 10px 0
+                background-color: rgba($white-1, .1)
+                border-radius: 10px
+                position: relative
+                transition: all .3s
+                &:hover
+                    background-color: rgba($white-1, .15)
+                h3
+                    margin: 10px
+                .content
+                    @media only (max-width: 1000px)
+                        height: 33vh
+                    display: block
+                    height: 95vh - $navHeight*2
+                    padding: 0 10px
+                    overflow-y: scroll

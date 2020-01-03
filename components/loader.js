@@ -5,6 +5,7 @@ export default function Loader(props){
     return(
         <div className={props.loaded ? 'Loader Off' : 'Loader'}>
             <img src={Logo} alt="Logo Horizons" className="Logo" />
+            <p className="text sm"> Connexion à la base de données ...</p>
         </div>
     )
 }

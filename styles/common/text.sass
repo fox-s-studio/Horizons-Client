@@ -1,15 +1,18 @@
+$smallest: 12px
 $small: 15px
 $normal: 18px
 $medium: 28px
 $big: 35px
 $bigger: 45px
 
+$smallest-m: $smallest
 $small-m: $small
 $normal-m: $normal
 $medium-m: 23px
 $big-m: 28px
 $bigger-m: 35px
 
+$smallest-sm: $smallest
 $small-sm: 13px
 $normal-sm: 15px
 $medium-sm: 18px
@@ -47,6 +50,12 @@ $bigger-sm: 25px
         letter-spacing: 1px
     font-size: $normal
     letter-spacing: 2px
+    &.smst
+        @media only (max-width: 1000px)
+            font-size: $smallest-m
+        @media only (max-width: 1000px)
+            font-size: $smallest-sm
+        font-size: $smallest
     &.sm
         @media only (max-width: 1000px)
             font-size: $small-m
@@ -55,3 +64,6 @@ $bigger-sm: 25px
         font-size: $small
     &.bold
         font-weight: bold
+
+.center
+    text-align: center

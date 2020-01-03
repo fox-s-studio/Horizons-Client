@@ -15,18 +15,15 @@ function Nav(props) {
   return(
     <nav className="nav">
       <ul className="navItems">
-        <li className="item">
-          <img src={Logo} alt="Logo Horizons" className="Logo" />
-          <img src={LogoM} alt="Logo Horizons" className="Logo-m" />
-        </li>
+        <Link href='/'>
+          <li className="item">
+            <img src={Logo} alt="Logo Horizons" className="Logo" />
+            <img src={LogoM} alt="Logo Horizons" className="Logo-m" />
+          </li>
+        </Link>
         <li className="item">
           <i className="fas fa-bars toggleMenu" onClick={MenuMobileToggle} ></i>
           <ul className="itemLinks">
-            <li className="Link">
-              <Link href='/'>
-                <a>Présentation</a>
-              </Link>
-            </li>
             <li className="Link">
               <Link href='/'>
                 <a>News</a>
@@ -34,12 +31,12 @@ function Nav(props) {
             </li>
             <li className="Link">
               <Link href='/'>
-                <a>Sections</a>
+                <a>Événements</a>
               </Link>
             </li>
             <li className="Link">
-              <Link href='/'>
-                <a>Évennements</a>
+              <Link href='/sections'>
+                <a>Sections</a>
               </Link>
             </li>
             <li className="Link">
