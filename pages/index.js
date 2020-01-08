@@ -18,7 +18,7 @@ function Home(){
 
   const isProd = process.env.NODE_ENV === 'production'
 
-  const apiUrl = isProd ? "https://horizons-database.herokuapp.com/" : "http://localhost:1500";
+  const apiUrl = isProd ? "https://horizons-database.herokuapp.com" : "http://localhost:1500";
 
   function addBackgrounds(backgrounds){
     setCurrentBackground(backgrounds);
