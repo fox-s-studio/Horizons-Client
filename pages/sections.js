@@ -21,9 +21,9 @@ function Sections(){
 
   const isProd = process.env.NODE_ENV === 'production'
 
-  const apiUrl = isProd ? "https://horizons-database.herokuapp.com/" : "http://localhost:1337/";
+  const apiUrl = isProd ? "https://horizons-database.herokuapp.com" : "http://localhost:1500";
 
-  useEffect(() => setCurrentBackground(background), [background])
+  useEffect(() => (!isProd) ? setCurrentBackground(apiUrl + background): setCurrentBackground(background), console.log(currentBackground) , [background])
 
   useEffect(() => {
     setInterval(() => {
@@ -41,11 +41,11 @@ function Sections(){
   },[]);
 
   useEffect(() => {
-    axios.get(`${apiUrl}Pages/`,{params:{Nom: 'Sections'}})
+    axios.get(`${apiUrl}/Pages/`,{params:{Nom: 'Sections'}})
       .then(res => {
         if(Array.isArray(res.data)){
 
-          axios.get(`${apiUrl}Backgrounds/`,{params:{_id: res.data[0].backgrounds.id}})
+          axios.get(`${apiUrl}/Backgrounds/`,{params:{_id: res.data[0].backgrounds.id}})
             .then(res => {
               setBackground(res.data[0].Image.url)
             })
@@ -56,14 +56,14 @@ function Sections(){
   },[]);
 
   useEffect(() => {
-    axios.get(`${apiUrl}Sections/`)
+    axios.get(`${apiUrl}/Sections/`)
       .then(res => {
         if(Array.isArray(res.data)){
           setSectionsArray(res.data.map(section => {
               return {
                   urlEnding: section.Nom,
                   name: section.Titre,
-                  logo: section.Logo.url
+                  logo: (!isProd) ? apiUrl + section.Logo.url : section.Logo.url
               };
             }));
           };
@@ -87,7 +87,7 @@ function Sections(){
             </div>
             <div className="sectionsList">
               {sectionsArray.map(n => (
-                <Section name={n.name} logo={n.logo} url={n.urlEnding} />
+                <Section name={n.name} logo={n.logo} url={n.urlEnding} key=""/>
               ))}
             </div>
         </div>

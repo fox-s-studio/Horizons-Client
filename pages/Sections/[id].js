@@ -24,7 +24,7 @@ function Sections(){
 
     const isProd = process.env.NODE_ENV === 'production'
 
-    const apiUrl = isProd ? "https://horizons-database.herokuapp.com/" : "http://localhost:1337/";
+    const apiUrl = isProd ? "https://horizons-database.herokuapp.com" : "http://localhost:1500";
 
     
     const router = useRouter()
@@ -52,38 +52,54 @@ function Sections(){
     useEffect(() => {
         let eventsArray = [];
         let newsArray = [];
-        axios.get(`${apiUrl}Sections/`,{params:{Nom:id}})
+        axios.get(`${apiUrl}/Sections/`,{params:{Nom:id}})
         .then(async res => {
             if (Array.isArray(res.data[0].news)){
                 res.data[0].news.map(n => {
-                    axios.get(`${apiUrl}News/${n.id}`).then(res => {
-                        newsArray.push({
-                            Title : res.data.Titre,
-                            Description : res.data.Description,
-                            Picture : res.data.Image.url,
-                        });
-                            setSectionNews(newsArray);
+                    axios.get(`${apiUrl}/News/${n.id}`).then(res => {
+                        (res.data.Image) ?
+                            newsArray.push({
+                                Title : res.data.Titre,
+                                Description : res.data.Description,
+                                Picture : (!isProd) ? apiUrl + res.data.Image.url : res.data.Image.url
+                            })
+                        :
+                            newsArray.push({
+                                Title : res.data.Titre,
+                                Description : res.data.Description,
+                            })
+                        setSectionNews(newsArray);
                     });
                 })
             }
             if (Array.isArray(res.data[0].evenements)){
                 res.data[0].evenements.map(n => {
-                    axios.get(`${apiUrl}Evenements/${n.id}`).then(res => {
-                        eventsArray.push({
-                            Title : res.data.Titre,
-                            Description : res.data.Description,
-                            Picture : res.data.Image.url,
-                        });
-                            setSectionEvents(eventsArray);
+                    axios.get(`${apiUrl}/Evenements/${n.id}`).then(res => {
+                        (res.data.Image) ?
+                            eventsArray.push({
+                                Title : res.data.Titre,
+                                Description : res.data.Description,
+                                Picture : (!isProd) ? apiUrl + res.data.Image.url : res.data.Image.url
+                            })
+                        :
+                            eventsArray.push({
+                                Title : res.data.Titre,
+                                Description : res.data.Description,
+                            })
+                        setSectionEvents(eventsArray);
                     });
                 })
             }
             if(Array.isArray(res.data) && id != undefined){
                 setSectionName(res.data[0].Titre)
-                axios.get(`${apiUrl}Backgrounds/`,{params:{_id: res.data[0].background.id}})
+                axios.get(`${apiUrl}/Backgrounds/`,{params:{_id: res.data[0].background.id}})
                     .then(res => {
                         setBackgrounds(backgrounds.push(res.data[0].Image.url))
-                        addBackgrounds(backgrounds[0])
+                        if (!isProd){
+                          addBackgrounds(apiUrl + backgrounds[0])
+                        }else{
+                          addBackgrounds(backgrounds[0])
+                        }
                     })
 
                 .catch(err => console.log(err))
