@@ -25,7 +25,7 @@ export default function MenuMobile(props){
                     </Link>
                     </li>
                     <li className="Link">
-                    <Link href='/Sections'>
+                    <Link href='/sections'>
                         <a>Sections</a>
                     </Link>
                     </li>
