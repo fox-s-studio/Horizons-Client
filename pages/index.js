@@ -18,7 +18,7 @@ function Home(){
 
   const isProd = process.env.NODE_ENV === 'production'
 
-  const apiUrl = isProd ? "https://horizons-database.herokuapp.com/" : "http://localhost:1337/";
+  const apiUrl = isProd ? "https://horizons-database.herokuapp.com/" : "http://localhost:1500";
 
   function addBackgrounds(backgrounds){
     setCurrentBackground(backgrounds);
@@ -40,14 +40,18 @@ function Home(){
   },[]);
 
   useEffect(() => {
-    axios.get(`${apiUrl}Pages/`,{params:{Nom: 'Homepage'}})
+    axios.get(`${apiUrl}/Pages/`,{params:{Nom: 'Homepage'}})
       .then(res => {
         if(res.data[0] != undefined){
 
-          axios.get(`${apiUrl}Backgrounds/`,{params:{_id: res.data[0].backgrounds.id}})
+          axios.get(`${apiUrl}/Backgrounds/`,{params:{_id: res.data[0].backgrounds.id}})
             .then(res => {
               setBackgrounds(backgrounds.push(res.data[0].Image.url))
-              addBackgrounds(backgrounds[0])
+              if (!isProd){
+                addBackgrounds(apiUrl + backgrounds[0])
+              }else{
+                addBackgrounds(backgrounds[0])
+              }
             })
 
             .catch(err => console.log(err))
